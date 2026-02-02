@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> 
+
+<!-- General board description: vendor, name, etc. -->
+<board schema_version="2.1" vendor="miner.ebang.com.cn" name="ebaz4205" display_name="EBAZ4205 Development Board" url="http://miner.ebang.com.cn" preset_file="preset.xml">
+
+	<!-- Image of the board -->
+	<images>
+		<image name="ebaz4205.jpg" display_name="EBAZ4205 Development Board" sub_type="board">
+			<description>EBAZ4205 Development Board</description>
+		</image>
+	</images>
+	
+	<!-- Board PCB revision -->
+	<compatible_board_revisions>
+		<revision id="1">1.0</revision>
+	</compatible_board_revisions>
+
+	<!-- Board file revision -->
+  	<file_version>1.0</file_version>
+
+	<!-- Board description -->
+  	<description>EBAZ4205 is mining board used in Ebang Ebit E9+ bitcoin miner machine. This board features 256MB DDR3 memory, 128MB NAND Flash memory, 10/100MBit Ethernet and speed grade -1 Zynq 7010.</description>
+
+	<!-- Information about board components: fpga part, interfaces, etc. -->
+	<components>
+	
+		<!-- FPGA part -->
+		<component name="part0" display_name="EBAZ4205" type="fpga" part_name="xc7z010clg400-1" pin_map_file="part0_pins.xml" vendor="xilinx" spec_url="www.xilinx.com">
+			<description>FPGA part on the board</description>
+      	
+			<!-- Associated FPGA interfaces and IP cores -->
+			<interfaces>
+
+				<!-- Zynq 7000 processing system -->
+		    	<interface mode="master" name="ps7_fixedio" type="xilinx.com:display_processing_system7:fixedio_rtl:1.0" of_component="ps7_fixedio" preset_proc="ps7_preset"> 
+		      		<preferred_ips>
+		        		<preferred_ip vendor="xilinx.com" library="ip" name="processing_system7" order="0"/>
+		      		</preferred_ips>
+		    	</interface>
+
+				<!-- User LEDs: Red and Green (LED6) -->
+				<interface mode="master" name="green_led" type="xilinx.com:interface:gpio_rtl:1.0" of_component="green_led" preset_proc="green_led_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_O" physical_port="green_led" dir="out" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="green_led"/> 
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="red_led" type="xilinx.com:interface:gpio_rtl:1.0" of_component="red_led" preset_proc="red_led_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_O" physical_port="red_led" dir="out" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="red_led"/> 
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<!-- User Onboard Push Buttons -->
+				<interface mode="master" name="sw2" type="xilinx.com:interface:gpio_rtl:1.0" of_component="sw2" preset_proc="sw2_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_I" physical_port="sw2" dir="in" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="sw2"/> 
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="sw3" type="xilinx.com:interface:gpio_rtl:1.0" of_component="sw3" preset_proc="sw3_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_I" physical_port="sw3" dir="in" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="sw3"/> 
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<!--Auxiliary board Buttons -->
+				<interface mode="master" name="K1" type="xilinx.com:interface:gpio_rtl:1.0" of_component="K1" preset_proc="K1_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_I" physical_port="K1" dir="in" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="K1"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="K2" type="xilinx.com:interface:gpio_rtl:1.0" of_component="K2" preset_proc="K2_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_I" physical_port="K2" dir="in" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="K2"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="K3" type="xilinx.com:interface:gpio_rtl:1.0" of_component="K3" preset_proc="K3_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_I" physical_port="K3" dir="in" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="K3"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="K4" type="xilinx.com:interface:gpio_rtl:1.0" of_component="K4" preset_proc="K4_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_I" physical_port="K4" dir="in" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="K4"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="K5" type="xilinx.com:interface:gpio_rtl:1.0" of_component="K5" preset_proc="K5_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_I" physical_port="K5" dir="in" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="K5"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<!-- Auxiliary board lcd -->
+				<interface mode="master" name="lcd_i2c" type="xilinx.com:interface:iic_rtl:1.0" of_component="lcd_i2c" preset_proc="lcd_i2c_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_iic" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="SDA" physical_port="lcd_sda" dir="inout">
+							<pin_maps>
+								<pin_map port_index="0" component_pin="lcd_sda"/>
+							</pin_maps>
+						</port_map>
+						<port_map logical_port="SCL" physical_port="lcd_scl" dir="inout">
+							<pin_maps>
+								<pin_map port_index="0" component_pin="lcd_scl"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+
+
+				<interface mode="master" name="lcd_backlight" type="xilinx.com:interface:gpio_rtl:1.0" of_component="lcd_backlight" preset_proc="lcd_backlight_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_O" physical_port="lcd_backlight" dir="out" left="0" right="0">
+							<pin_maps>
+								<pin_map port_index="0" component_pin="lcd_backlight"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+
+				<interface mode="master" name="lcd_res" type="xilinx.com:interface:gpio_rtl:1.0" of_component="lcd_res" preset_proc="lcd_res_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_O" physical_port="lcd_res" dir="out" left="0" right="0">
+							<pin_maps>
+								<pin_map port_index="0" component_pin="lcd_res"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+
+				<interface mode="master" name="lcd_dc" type="xilinx.com:interface:gpio_rtl:1.0" of_component="lcd_dc" preset_proc="lcd_dc_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_O" physical_port="lcd_dc" dir="out" left="0" right="0">
+							<pin_maps>
+								<pin_map port_index="0" component_pin="lcd_dc"/>
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+
+				<!-- Auxiliary board leds-->
+				<interface mode="master" name="led1" type="xilinx.com:interface:gpio_rtl:1.0" of_component="led1" preset_proc="led1_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_O" physical_port="led1" dir="out" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="led1"/> 
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="led2" type="xilinx.com:interface:gpio_rtl:1.0" of_component="led2" preset_proc="led2_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_O" physical_port="led2" dir="out" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="led2"/> 
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="led3" type="xilinx.com:interface:gpio_rtl:1.0" of_component="led3" preset_proc="led3_preset">
+					<preferred_ips>
+						<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+					</preferred_ips>
+					<port_maps>
+						<port_map logical_port="TRI_O" physical_port="led3" dir="out" left="0" right="0"> 
+							<pin_maps>
+								<pin_map port_index="0" component_pin="led3"/> 
+							</pin_maps>
+						</port_map>
+					</port_maps>
+				</interface>
+				
+				<interface mode="master" name="buzzer" type="xilinx.com:interface:gpio_rtl:1.0" of_component="buzzer" preset_proc="buzzer_preset">
+				  <preferred_ips>
+					<preferred_ip vendor="xilinx.com" library="ip" name="axi_gpio" order="0"/>
+				  </preferred_ips>
+				  <port_maps>
+					<port_map logical_port="TRI_O" physical_port="buzzer" dir="out" left="0" right="0">
+					  <pin_maps>
+						<pin_map port_index="0" component_pin="buzzer"/>
+					  </pin_maps>
+					</port_map>
+				  </port_maps>
+				</interface>
+				
+				<!-- PL Clock -->
+				<interface mode="master" name="clk" type="xilinx.com:interface:clock_rtl:1.0" of_component="clk" preset_proc="clk_preset">
+				  <port_maps>
+					<port_map logical_port="CLK" physical_port="clk" dir="in">
+					  <pin_maps>
+						<pin_map port_index="0" component_pin="clk"/>
+					  </pin_maps>
+					</port_map>
+				  </port_maps>
+				</interface>
+												
+		  	</interfaces>
+    	</component>
+
+    	<!-- Zynq 7000 processing system -->
+    	<component name="ps7_fixedio" display_name="PS7 fixed IO" type="chip" sub_type="fixed_io" major_group=""/>	
+
+		<!-- User LEDs: Red and Green (LED6) -->
+		<component name="red_led" display_name="Red LED" type="chip" sub_type="led" major_group="leds">
+			<description>Red LED, Active Low</description>
+		</component>
+
+		<component name="green_led" display_name="Green LED" type="chip" sub_type="led" major_group="leds">
+			<description>Green LED, Active Low</description>
+		</component>
+
+		
+		<!-- User Onboard Push Buttons -->
+		<component name="sw2" display_name="SW2 Button" type="chip" sub_type="push_button" major_group="buttons">
+			<description>SW2 Onboard Push Button, Active High</description>
+		</component>
+
+		<component name="sw3" display_name="SW3 Button" type="chip" sub_type="push_button" major_group="buttons">
+			<description>SW3 Onboard Push Button, Active High</description>
+		</component>
+		
+		<component name="K1" display_name="K1 Button" type="chip" sub_type="push_button" major_group="buttons">
+			<description>K1 Auxiliary Push Button, Active High</description>
+		</component>
+
+		<component name="K2" display_name="K2 Button" type="chip" sub_type="push_button" major_group="buttons">
+			<description>K2 Auxiliary Push Button, Active High</description>
+		</component>
+
+		<component name="K3" display_name="K3 Button" type="chip" sub_type="push_button" major_group="buttons">
+			<description>K3 Auxiliary Push Button, Active High</description>
+		</component>
+
+		<component name="K4" display_name="K4 Button" type="chip" sub_type="push_button" major_group="buttons">
+			<description>K4 Auxiliary Push Button, Active High</description>
+		</component>
+
+		<component name="K5" display_name="K5 Button" type="chip" sub_type="push_button" major_group="buttons">
+			<description>K5 Auxiliary Push Button, Active High</description>
+		</component>
+
+		<!-- LCD I2C Interface -->
+		<component name="lcd_i2c" display_name="LCD I2C" type="chip" sub_type="i2c" major_group="display">
+			<description>LCD I2C Interface (SDA/SCL)</description>
+		</component>
+		
+		<component name="lcd_backlight" display_name="LCD Backlight" type="chip" sub_type="gpio" major_group="display">
+			<description>LCD Backlight</description>
+		</component>
+		
+		<component name="lcd_res" display_name="LCD Reset" type="chip" sub_type="gpio" major_group="display">
+			<description>LCD Reset</description>
+		</component>
+		
+		<component name="lcd_dc" display_name="LCD Data/Command" type="chip" sub_type="gpio" major_group="display">
+			<description>LCD Data/Command</description>
+		</component>
+
+		<component name="clk" display_name="PL Clock" type="chip" sub_type="clock" major_group="clock">
+			<description>50 MHz clock from X5 oscillator on N18</description>
+		</component>
+		
+		
+		<!-- Auxiliary board leds-->
+		<component name="led1" display_name="LED1" type="chip" sub_type="led" major_group="leds">
+			<description>LED1, Active High</description>
+		</component>
+		
+		<component name="led2" display_name="LED2" type="chip" sub_type="led" major_group="leds">
+			<description>LED2, Active High</description>
+		</component>
+		
+		<component name="led3" display_name="LED3" type="chip" sub_type="led" major_group="leds">
+			<description>LED3, Active High</description>
+		</component>
+		
+		<component name="buzzer" display_name="Buzzer" type="chip" sub_type="buzzer" major_group="audio">
+			<description>Auxiliary board buzzer</description>
+		</component>		
+		
+	</components>
+
+	<!-- Board jtag chains for all fpga parts -->
+	<jtag_chains>
+
+		<!-- Board jtag chains for part0 -->
+		<jtag_chain name="chain1">
+			<position name="0" component="part0"/>
+		</jtag_chain>
+
+	</jtag_chains>
+
+	<!-- Connections between component interfaces and physical pins described in part0.xml -->
+	<connections>	
+
+		<!-- User LEDs: Red and Green (LED6) -->
+		<connection name="part0_red_led" component1="part0" component2="red_led">
+			<connection_map name="part0_red_led_map" c1_st_index="0" c1_end_index="0" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<connection name="part0_green_led" component1="part0" component2="green_led">
+			<connection_map name="part0_green_led_map" c1_st_index="1" c1_end_index="1" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		
+		<!-- Onboard Push Buttons -->
+		<connection name="part0_sw2" component1="part0" component2="sw2">
+			<connection_map name="part0_sw2_map" c1_st_index="2" c1_end_index="2" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<connection name="part0_sw3" component1="part0" component2="sw3">
+			<connection_map name="part0_sw3_map" c1_st_index="3" c1_end_index="3" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<!-- Auxiliary board Buttons -->
+		<connection name="part0_K1" component1="part0" component2="K1">
+			<connection_map name="part0_K1_map" c1_st_index="4" c1_end_index="4" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<connection name="part0_K2" component1="part0" component2="K2">
+			<connection_map name="part0_K2_map" c1_st_index="5" c1_end_index="5" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<connection name="part0_K3" component1="part0" component2="K3">
+			<connection_map name="part0_K3_map" c1_st_index="6" c1_end_index="6" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<connection name="part0_K4" component1="part0" component2="K4">
+			<connection_map name="part0_K4_map" c1_st_index="7" c1_end_index="7" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<connection name="part0_K5" component1="part0" component2="K5">
+			<connection_map name="part0_K5_map" c1_st_index="8" c1_end_index="8" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+		
+		<!-- Auxiliary board LCD I2C Connection -->
+		<connection name="part0_lcd_i2c" component1="part0" component2="lcd_i2c">
+			<connection_map name="part0_lcd_i2c_map"
+				c1_st_index="9" c1_end_index="10" c2_st_index="0" c2_end_index="1"/>
+		</connection>
+		
+		<connection name="part0_lcd_backlight" component1="part0" component2="lcd_backlight">
+			<connection_map name="lcd_backlight_map" c1_st_index="11" c1_end_index="11" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<connection name="part0_lcd_res" component1="part0" component2="lcd_res">
+			<connection_map name="lcd_res_map" c1_st_index="12" c1_end_index="12" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+
+		<connection name="part0_lcd_dc" component1="part0" component2="lcd_dc">
+			<connection_map name="lcd_dc_map" c1_st_index="13" c1_end_index="13" c2_st_index="0" c2_end_index="0"/>
+		</connection>		
+
+		<connection name="part0_clk" component1="part0" component2="clk">
+			<connection_map name="part0_clk_map" c1_st_index="14" c1_end_index="14" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+		
+		<!-- Auxiliary board leds-->
+		<connection name="part0_led1" component1="part0" component2="led1">
+			<connection_map name="part0_led1_map" c1_st_index="15" c1_end_index="15" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+		
+		<connection name="part0_led2" component1="part0" component2="led2">
+			<connection_map name="part0_led2_map" c1_st_index="16" c1_end_index="16" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+		
+		<connection name="part0_led3" component1="part0" component2="led3">
+			<connection_map name="part0_led3_map" c1_st_index="17" c1_end_index="17" c2_st_index="0" c2_end_index="0"/>
+		</connection>
+		
+		<!--Auxiliary board buzzer -->
+		<connection name="part0_buzzer" component1="part0" component2="buzzer">
+			<connection_map name="part0_buzzer_map" c1_st_index="18" c1_end_index="18" c2_st_index="0" c2_end_index="0"/>
+		</connection>	
+
+  	</connections>
+
+</board>

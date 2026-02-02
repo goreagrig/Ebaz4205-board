@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?> 
+
+<!-- Complete Presets for all pins with physical locations -->
+<ip_presets schema="1.0">
+
+    <!-- Zynq 7000 processing system configuration -->
+    <ip_preset preset_proc_name="ps7_preset"> 
+        <ip vendor="xilinx.com" library="ip" name="processing_system7" version="*"> 
+            <user_parameters>
+                <user_parameter name="CONFIG.PCW_UART1_PERIPHERAL_ENABLE" value="1"/>
+                <user_parameter name="CONFIG.PCW_UART1_UART1_IO" value="MIO 24 .. 25"/>
+                <user_parameter name="CONFIG.PCW_SD0_PERIPHERAL_ENABLE" value="1"/>
+                <user_parameter name="CONFIG.PCW_SD0_SD0_IO" value="MIO 40 .. 45"/>
+                <user_parameter name="CONFIG.PCW_NAND_PERIPHERAL_ENABLE" value="1"/>
+                <user_parameter name="CONFIG.PCW_NAND_GRP_D8_ENABLE" value="0"/>
+                <user_parameter name="CONFIG.PCW_NAND_CYCLES_T_AR" value="15" />
+                <user_parameter name="CONFIG.PCW_NAND_CYCLES_T_CLR" value="15" />
+                <user_parameter name="CONFIG.PCW_NAND_CYCLES_T_RC" value="30" />
+                <user_parameter name="CONFIG.PCW_NAND_CYCLES_T_REA" value="5" />
+                <user_parameter name="CONFIG.PCW_NAND_CYCLES_T_RR" value="25" />
+                <user_parameter name="CONFIG.PCW_NAND_CYCLES_T_WC" value="30" />
+                <user_parameter name="CONFIG.PCW_NAND_CYCLES_T_WP" value="15" />
+                <user_parameter name="CONFIG.PCW_NAND_NAND_IO" value="MIO 0 2.. 14" />
+                <user_parameter name="CONFIG.PCW_ENET0_PERIPHERAL_ENABLE" value="1"/>
+                <user_parameter name="CONFIG.PCW_ENET0_ENET0_IO" value="EMIO"/>
+                <user_parameter name="CONFIG.PCW_ENET0_GRP_MDIO_ENABLE" value="1"/>
+                <user_parameter name="CONFIG.PCW_ENET0_PERIPHERAL_FREQMHZ" value="100 Mbps"/>
+                <user_parameter name="CONFIG.PCW_GPIO_MIO_GPIO_ENABLE" value="1"/>
+                <user_parameter name="CONFIG.PCW_GPIO_MIO_GPIO_IO" value="MIO"/>
+                <user_parameter name="CONFIG.PCW_ENET_RESET_ENABLE" value="0"/>
+                <user_parameter name="CONFIG.PCW_USB_RESET_ENABLE" value="0"/>
+                <user_parameter name="CONFIG.PCW_I2C_RESET_ENABLE" value="0"/>
+                <user_parameter name="CONFIG.PCW_UIPARAM_DDR_BUS_WIDTH" value="16 Bit"/>
+                <user_parameter name="CONFIG.PCW_UIPARAM_DDR_PARTNO" value="MT41K128M16 JT-125"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <!-- User LEDs -->
+    <ip_preset preset_proc_name="red_led_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x1"/>
+                <user_parameter name="PIN_LOC" value="W14"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="green_led_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x1"/>
+                <user_parameter name="PIN_LOC" value="W13"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <!-- User switches -->
+    <ip_preset preset_proc_name="sw2_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="A17"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="sw3_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="A14"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <!-- User buttons K1 to K5 -->
+    <ip_preset preset_proc_name="K1_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="T19"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="K2_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="P19"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="K3_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="U20"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="K4_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="U19"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="K5_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/> 
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="0"/> 
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="V20"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <!-- LCD I2C -->
+    <ip_preset preset_proc_name="lcd_i2c_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_iic" ip_interface="IIC">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_TEN_BIT_ADR" value="0"/>
+                <user_parameter name="SDA_LOC" value="P20"/>
+                <user_parameter name="SCL_LOC" value="R19"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <!-- LCD GPIOs -->
+    <ip_preset preset_proc_name="lcd_backlight_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x1"/>
+                <user_parameter name="PIN_LOC" value="T20"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="lcd_res_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x1"/>
+                <user_parameter name="PIN_LOC" value="N17"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="lcd_dc_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="R18"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <!-- Additional LEDs -->
+    <ip_preset preset_proc_name="led1_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="E19"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="led2_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="K17"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <ip_preset preset_proc_name="led3_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="H18"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+    <!-- Buzzer -->
+    <ip_preset preset_proc_name="buzzer_preset">
+        <ip vendor="xilinx.com" library="ip" name="axi_gpio" ip_interface="GPIO">
+            <user_parameters>
+                <user_parameter name="CONFIG.C_GPIO_WIDTH" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_OUTPUTS" value="1"/>
+                <user_parameter name="CONFIG.C_ALL_INPUTS" value="0"/>
+                <user_parameter name="CONFIG.C_DOUT_DEFAULT" value="0x0"/>
+                <user_parameter name="PIN_LOC" value="D18"/>
+            </user_parameters>
+        </ip>
+    </ip_preset>
+
+</ip_presets>
